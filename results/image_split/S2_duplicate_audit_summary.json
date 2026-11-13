@@ -1,0 +1,15 @@
+{
+  "phash_max_hamming_distance": 6,
+  "raw_files": 27198,
+  "unreadable_files": 0,
+  "exact_duplicate_files_removed": 13599,
+  "exact_hashes_with_conflicting_labels": 0,
+  "analysis_images": 13599,
+  "near_duplicate_pairs": 10640,
+  "near_duplicate_pairs_with_conflicting_labels": 2897,
+  "pairs_train_test": 2174,
+  "pairs_train_validation": 2275,
+  "pairs_validation_test": 447,
+  "test_images_with_near_duplicate_in_train": 1060,
+  "split_mode": "image"
+}

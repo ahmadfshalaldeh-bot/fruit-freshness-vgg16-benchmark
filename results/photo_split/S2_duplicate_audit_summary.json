@@ -1,0 +1,18 @@
+{
+  "phash_max_hamming_distance": 6,
+  "raw_files": 27198,
+  "unreadable_files": 0,
+  "exact_duplicate_files_removed": 13599,
+  "exact_hashes_with_conflicting_labels": 0,
+  "analysis_images": 13599,
+  "near_duplicate_pairs": 10640,
+  "near_duplicate_pairs_with_conflicting_labels": 2897,
+  "pairs_train_test": 1170,
+  "pairs_train_validation": 1345,
+  "pairs_validation_test": 255,
+  "test_images_with_near_duplicate_in_train": 495,
+  "split_mode": "family",
+  "families": 1511,
+  "test_images_with_same_photo_version_in_train": 0,
+  "families_split_across_partitions": 0
+}

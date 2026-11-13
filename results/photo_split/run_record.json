@@ -1,0 +1,78 @@
+{
+  "provenance": {
+    "source": "https://www.kaggle.com/datasets/sriramr/fruits-fresh-and-rotten-for-classification",
+    "kagglehub_path": "/kaggle/input/fruits-fresh-and-rotten-for-classification",
+    "kagglehub_version": "1.0.3",
+    "downloaded_utc": "2026-11-13T14:02:15+00:00"
+  },
+  "config": {
+    "seed": 42,
+    "img_size": 224,
+    "per_class": null,
+    "drop_exact_duplicates": true,
+    "split_mode": "family",
+    "fractions": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "batch_size": 32,
+    "max_epochs": 100,
+    "patience": 10,
+    "learning_rate": 0.0001,
+    "early_stopping_restore_best_weights": true,
+    "pixel_scaling": "x/255 -> [0,1]",
+    "augmentation": "rot \u00b120\u00b0, h+v flip, zoom 0.8\u20131.2, shift 0.1, shear 0.1\u00b0 (ImageDataGenerator semantics), brightness \u00d70.8\u20131.2, fill nearest"
+  },
+  "split_counts": {
+    "train": 9495,
+    "test": 2052,
+    "validation": 2052
+  },
+  "epochs_run": 62,
+  "best_epoch": 52,
+  "training_minutes": 8.7,
+  "heldout": {
+    "correct": 1947,
+    "total": 2052,
+    "accuracy": 0.9488304093567251,
+    "macro_precision": 0.9487640377153931,
+    "macro_recall": 0.9456879655370657,
+    "macro_f1": 0.9468890437927788
+  },
+  "extra_views": {
+    "originals_only": {
+      "n": 228,
+      "accuracy": 0.9605263157894737,
+      "macro_precision": 0.96240132416603,
+      "macro_recall": 0.9582390913250555,
+      "macro_f1": 0.9597080409224622
+    },
+    "accuracy_ci95_photo_bootstrap": [
+      0.9259259259259259,
+      0.9688109161793372
+    ],
+    "macro_f1_ci95_photo_bootstrap": [
+      0.9225456284617033,
+      0.9668224574470783
+    ]
+  },
+  "duplicate_audit": {
+    "phash_max_hamming_distance": 6,
+    "raw_files": 27198,
+    "unreadable_files": 0,
+    "exact_duplicate_files_removed": 13599,
+    "exact_hashes_with_conflicting_labels": 0,
+    "analysis_images": 13599,
+    "near_duplicate_pairs": 10640,
+    "near_duplicate_pairs_with_conflicting_labels": 2897,
+    "pairs_train_test": 1170,
+    "pairs_train_validation": 1345,
+    "pairs_validation_test": 255,
+    "test_images_with_near_duplicate_in_train": 495,
+    "split_mode": "family",
+    "families": 1511,
+    "test_images_with_same_photo_version_in_train": 0,
+    "families_split_across_partitions": 0
+  }
+}

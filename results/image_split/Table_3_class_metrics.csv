@@ -1,0 +1,8 @@
+Class,Test support,Precision (%),Recall (%),F1-score (%)
+Fresh apple,313,96.76,95.53,96.14
+Rotten apple,442,95.31,96.61,95.96
+Fresh banana,294,99.66,98.98,99.32
+Rotten banana,413,99.28,99.76,99.52
+Fresh orange,278,97.75,93.88,95.78
+Rotten orange,300,93.53,96.33,94.91
+Macro average,2040,97.05,96.85,96.94

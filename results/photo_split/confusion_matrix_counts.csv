@@ -1,0 +1,7 @@
+,Fresh apple,Rotten apple,Fresh banana,Rotten banana,Fresh orange,Rotten orange
+Fresh apple,304,18,0,0,0,2
+Rotten apple,10,415,0,0,0,7
+Fresh banana,2,0,293,0,1,1
+Rotten banana,0,0,10,413,0,0
+Fresh orange,9,0,5,1,252,12
+Rotten orange,0,19,0,0,8,270

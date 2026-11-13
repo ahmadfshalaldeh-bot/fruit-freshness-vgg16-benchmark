@@ -1,0 +1,59 @@
+{
+  "provenance": {
+    "source": "https://www.kaggle.com/datasets/sriramr/fruits-fresh-and-rotten-for-classification",
+    "kagglehub_path": "/kaggle/input/fruits-fresh-and-rotten-for-classification",
+    "kagglehub_version": "1.0.3",
+    "downloaded_utc": "2026-11-13T12:41:08+00:00"
+  },
+  "config": {
+    "seed": 42,
+    "img_size": 224,
+    "per_class": null,
+    "drop_exact_duplicates": true,
+    "split_mode": "image",
+    "fractions": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "batch_size": 32,
+    "max_epochs": 100,
+    "patience": 10,
+    "learning_rate": 0.0001,
+    "early_stopping_restore_best_weights": true,
+    "pixel_scaling": "x/255 -> [0,1]",
+    "augmentation": "rot \u00b120\u00b0, h+v flip, zoom 0.8\u20131.2, shift 0.1, shear 0.1\u00b0 (ImageDataGenerator semantics), brightness \u00d70.8\u20131.2, fill nearest"
+  },
+  "split_counts": {
+    "train": 9519,
+    "test": 2040,
+    "validation": 2040
+  },
+  "epochs_run": 100,
+  "best_epoch": 96,
+  "training_minutes": 14.1,
+  "heldout": {
+    "correct": 1979,
+    "total": 2040,
+    "accuracy": 0.9700980392156863,
+    "macro_precision": 0.9704853563416612,
+    "macro_recall": 0.9684819631615721,
+    "macro_f1": 0.9693672569370942
+  },
+  "comparison_with_draft": "DIFFERS from the draft (1792/1800). Update the Abstract, Sections 3\u20135, Table 3 and Figure 3 to these numbers.",
+  "duplicate_audit": {
+    "phash_max_hamming_distance": 6,
+    "raw_files": 27198,
+    "unreadable_files": 0,
+    "exact_duplicate_files_removed": 13599,
+    "exact_hashes_with_conflicting_labels": 0,
+    "analysis_images": 13599,
+    "near_duplicate_pairs": 10640,
+    "near_duplicate_pairs_with_conflicting_labels": 2897,
+    "pairs_train_test": 2174,
+    "pairs_train_validation": 2275,
+    "pairs_validation_test": 447,
+    "test_images_with_near_duplicate_in_train": 1060,
+    "split_mode": "image"
+  }
+}
