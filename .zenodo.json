@@ -1,0 +1,10 @@
+{
+  "title": "One Photograph, Nine Images: Provenance-Aware Benchmarking of a Frozen VGG16 Classifier for Fresh and Rotten Fruit (code, splits and results)",
+  "upload_type": "software",
+  "description": "Code, photo-level split assignments and results for a provenance-aware benchmark of a frozen ImageNet VGG16 classifier on the Kaggle 'Fruits Fresh and Rotten for Classification' collection (six classes). The collection's 13,599 unique images derive from 1,511 photographs stored in nine versions each; the repository provides photograph identifiers, image-level and photo-level splits, held-out predictions, duplicate audits, environment records and the Colab notebook. Dataset images are not redistributed.",
+  "creators": [
+    {"name": "Shalaldeh, Ahmad", "affiliation": "Al-Ahliyya Amman University"}
+  ],
+  "license": "MIT",
+  "keywords": ["fruit freshness", "image classification", "VGG16", "transfer learning", "data leakage", "dataset provenance", "reproducibility"]
+}
