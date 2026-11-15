@@ -1,5 +1,7 @@
 # One Photograph, Nine Images: provenance-aware benchmarking of a frozen VGG16 fresh/rotten fruit classifier
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24242047.svg)](https://doi.org/10.5281/zenodo.24242047)
+
 Code, split assignments and results for the article submitted to *Applied Sciences* (MDPI):
 **Shalaldeh, A. "One Photograph, Nine Images: Provenance-Aware Benchmarking of a Frozen VGG16 Classifier for Fresh and Rotten Fruit."**
 
@@ -53,4 +55,4 @@ The images are **not** redistributed here; the Kaggle page lists the dataset lic
 
 ## Licence and citation
 
-Code: MIT (see `LICENSE`). Please cite the article (see `CITATION.cff`).
+Code: MIT (see `LICENSE`). Archived on Zenodo: https://doi.org/10.5281/zenodo.24242047 (v1.0). Please cite the article (see `CITATION.cff`).

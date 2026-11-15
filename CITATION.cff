@@ -7,4 +7,6 @@ authors:
     affiliation: "Al-Ahliyya Amman University"
 repository-code: "https://github.com/ahmadfshalaldeh-bot/fruit-freshness-vgg16-benchmark"
 license: MIT
+doi: 10.5281/zenodo.24242047
+version: 1.0
 date-released: 2026-11-13
