@@ -1,0 +1,26 @@
+{
+  "run_id": "E3frozen_s2_f2_exposed",
+  "fine_tune": false,
+  "seed": 202,
+  "epochs_run": 30,
+  "updates": 8400,
+  "n_train": 8956,
+  "n_val": 1332,
+  "minutes": 4.32,
+  "preprocess": "vgg_caffe",
+  "finished_utc": "2026-11-15T16:46:24+00:00",
+  "eval": {
+    "orig": {
+      "n": 301,
+      "correct": 300
+    },
+    "held": {
+      "n": 301,
+      "correct": 300
+    },
+    "val": {
+      "n": 1332,
+      "correct": 1299
+    }
+  }
+}

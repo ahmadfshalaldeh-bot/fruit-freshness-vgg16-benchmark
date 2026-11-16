@@ -1,0 +1,19 @@
+{
+  "run_id": "E5v1_image",
+  "fine_tune": false,
+  "seed": 42,
+  "epochs_run": 91,
+  "updates": 27118,
+  "n_train": 9519,
+  "n_val": 2040,
+  "minutes": 15.11,
+  "preprocess": "vgg_caffe",
+  "finished_utc": "2026-11-15T18:49:28+00:00",
+  "eval": {
+    "test": {
+      "n": 2040,
+      "correct": 2031
+    }
+  },
+  "best_epoch": 81
+}

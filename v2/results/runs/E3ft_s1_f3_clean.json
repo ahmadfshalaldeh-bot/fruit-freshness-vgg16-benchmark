@@ -1,0 +1,26 @@
+{
+  "run_id": "E3ft_s1_f3_clean",
+  "fine_tune": true,
+  "seed": 103,
+  "epochs_run": 12,
+  "updates": 3348,
+  "n_train": 8927,
+  "n_val": 1350,
+  "minutes": 3.78,
+  "preprocess": "vgg_caffe",
+  "finished_utc": "2026-11-15T17:31:18+00:00",
+  "eval": {
+    "orig": {
+      "n": 302,
+      "correct": 293
+    },
+    "held": {
+      "n": 302,
+      "correct": 296
+    },
+    "val": {
+      "n": 1350,
+      "correct": 1327
+    }
+  }
+}

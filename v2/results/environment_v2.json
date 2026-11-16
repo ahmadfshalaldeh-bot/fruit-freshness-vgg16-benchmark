@@ -1,0 +1,40 @@
+{
+  "finished_utc": "2026-11-16T06:48:24+00:00",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "python": "3.13.16",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "numpy": "2.4.6",
+  "pandas": "2.2.3",
+  "gpu": [
+    {
+      "compute_capability": [
+        8,
+        0
+      ],
+      "device_name": "NVIDIA A100-SXM4-80GB"
+    }
+  ],
+  "preprocess": "vgg_caffe",
+  "mixed_precision": true,
+  "config": {
+    "N_FOLDS": 5,
+    "E3_SEEDS": [
+      1,
+      2
+    ],
+    "E3_FT_SEEDS": [
+      1,
+      2
+    ],
+    "E3_EPOCHS_FROZEN": 30,
+    "E3_EPOCHS_FT": 12,
+    "LR_FROZEN": 0.0001,
+    "LR_FT": 1e-05,
+    "E4_REPEATS": 3,
+    "E4_MAX_EPOCHS": 100,
+    "E4_PATIENCE": 10,
+    "BATCH": 32
+  },
+  "scikit_learn": "1.6.1"
+}

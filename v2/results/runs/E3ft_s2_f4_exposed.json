@@ -1,0 +1,28 @@
+{
+  "run_id": "E3ft_s2_f4_exposed",
+  "fine_tune": true,
+  "seed": 204,
+  "epochs_run": 12,
+  "updates": 3360,
+  "n_train": 8936,
+  "n_val": 1341,
+  "minutes": 3.67,
+  "preprocess": "vgg_caffe",
+  "finished_utc": "2026-11-16T06:47:46+00:00",
+  "start_weights_sha256": "61cd53e62ec8fd6a759c1cd37640403f0e8f17babe6378c7670709cf0f254932",
+  "optimizer_iterations": 3360,
+  "eval": {
+    "orig": {
+      "n": 302,
+      "correct": 302
+    },
+    "held": {
+      "n": 302,
+      "correct": 302
+    },
+    "val": {
+      "n": 1341,
+      "correct": 1318
+    }
+  }
+}

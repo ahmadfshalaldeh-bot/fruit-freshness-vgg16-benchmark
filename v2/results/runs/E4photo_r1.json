@@ -1,0 +1,19 @@
+{
+  "run_id": "E4photo_r1",
+  "fine_tune": false,
+  "seed": 501,
+  "epochs_run": 34,
+  "updates": 10200,
+  "n_train": 9576,
+  "n_val": 1998,
+  "minutes": 5.64,
+  "preprocess": "vgg_caffe",
+  "finished_utc": "2026-11-15T18:15:57+00:00",
+  "eval": {
+    "test": {
+      "n": 2025,
+      "correct": 1975
+    }
+  },
+  "best_epoch": 24
+}

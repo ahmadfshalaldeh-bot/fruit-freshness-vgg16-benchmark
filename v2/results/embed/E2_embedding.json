@@ -1,0 +1,52 @@
+{
+  "true_sibling_pairs": 54396,
+  "auc_sibling_vs_same_class_nonsibling": 0.8763951638217884,
+  "threshold": {
+    "0.8": {
+      "sibling_links": 33036,
+      "recall": 0.6073240679461726,
+      "nonsibling_links": 895032,
+      "precision": 0.03559652956464397
+    },
+    "0.85": {
+      "sibling_links": 24633,
+      "recall": 0.4528457974851092,
+      "nonsibling_links": 301839,
+      "precision": 0.07545210615305448
+    },
+    "0.9": {
+      "sibling_links": 16181,
+      "recall": 0.29746672549452163,
+      "nonsibling_links": 55400,
+      "precision": 0.22605160587306689
+    },
+    "0.95": {
+      "sibling_links": 7089,
+      "recall": 0.1303220825060666,
+      "nonsibling_links": 4216,
+      "precision": 0.6270676691729323
+    },
+    "0.98": {
+      "sibling_links": 1587,
+      "recall": 0.029174939333774543,
+      "nonsibling_links": 988,
+      "precision": 0.6163106796116505
+    }
+  },
+  "mean_siblings_in_top8": 3.19133759835282,
+  "share_top1_is_sibling": 0.7150525773953967,
+  "sibling_sim_quantiles": [
+    0.5843,
+    0.7449,
+    0.8346,
+    0.9143,
+    0.9746
+  ],
+  "nonsibling_sim_quantiles": [
+    0.3851,
+    0.5125,
+    0.6069,
+    0.7024,
+    0.8211
+  ]
+}

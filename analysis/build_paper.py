@@ -1,4 +1,5 @@
-"""Compute every number used in the manuscript from the two reproducibility archives,
+"""HISTORICAL (v1.0): builds the numbers of the earlier single-split configuration. The v2 analysis is in v2/analysis/.
+Compute every number used in the manuscript from the two reproducibility archives,
 draw the figures, and fill the LaTeX template.
 
 Usage: python build_paper.py <image_split_archive_dir> <family_split_archive_dir> <paper_dir>
@@ -117,7 +118,7 @@ V["DIFF_ORIG"] = f'{100 * (I["acc_orig"] - F["acc_orig"]):.2f}'
 # worst classes and largest confusions for the family split
 order = np.argsort(F["f"]); V["F_WORST"] = NAMES[order[0]].lower(); V["F_WORSTF1"] = pct(F["f"][order[0]])
 V["F_WORST2"] = NAMES[order[1]].lower(); V["F_WORST2F1"] = pct(F["f"][order[1]])
-V["F_BEST"] = NAMES[order[-1]].lower(); V["F_BESTF1"] = pct(F["f"][order[-1]])
+V["F_BESTCLS"] = NAMES[order[-1]].lower(); V["F_BESTCLSF1"] = pct(F["f"][order[-1]])  # was F_BEST, which overwrote the photo-split best epoch
 cmo = F["cm"].copy(); np.fill_diagonal(cmo, 0)
 top = np.dstack(np.unravel_index(np.argsort(cmo.ravel())[::-1], cmo.shape))[0][:3]
 V["F_CONF"] = "; ".join(f"{NAMES[i].lower()} predicted as {NAMES[j].lower()} ({cmo[i, j]})" for i, j in top)
@@ -159,11 +160,12 @@ V["TABLE_PHASH"] = "\n".join(rows)
 import subprocess
 subprocess.run([sys.executable, str(Path(__file__).parent / "make_figures.py"), str(IMG), str(FAM), str(PAPER / "Figures")], check=True)
 
-tpl = (PAPER / "manuscript_template.tex").read_text(encoding="utf-8")
-missing = sorted(set(re.findall(r"<<([A-Z0-9_]+)>>", tpl)) - set(V))
-if missing:
-    raise SystemExit(f"Template keys without values: {missing}")
-out = re.sub(r"<<([A-Z0-9_]+)>>", lambda m: str(V[m.group(1)]), tpl)
-(PAPER / "manuscript.tex").write_text(out, encoding="utf-8")
+if (PAPER / "manuscript_template.tex").exists():  # the v1 manuscript template is not part of the repository
+    tpl = (PAPER / "manuscript_template.tex").read_text(encoding="utf-8")
+    missing = sorted(set(re.findall(r"<<([A-Z0-9_]+)>>", tpl)) - set(V))
+    if missing:
+        raise SystemExit(f"Template keys without values: {missing}")
+    out = re.sub(r"<<([A-Z0-9_]+)>>", lambda m: str(V[m.group(1)]), tpl)
+    (PAPER / "manuscript.tex").write_text(out, encoding="utf-8")
 (PAPER / "numbers_used.json").write_text(json.dumps({k: v for k, v in V.items() if not k.startswith("TABLE")}, indent=2, ensure_ascii=False, default=str))
 print(json.dumps({k: v for k, v in V.items() if not k.startswith("TABLE")}, indent=1, ensure_ascii=False, default=str))

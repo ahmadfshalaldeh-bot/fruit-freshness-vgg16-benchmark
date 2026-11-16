@@ -1,12 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this code or the photo-level split, please cite it as below."
-title: "One Photograph, Nine Images: Provenance-Aware Benchmarking of a Frozen VGG16 Classifier for Fresh and Rotten Fruit (code and data)"
+message: "If you use this code, the capture-group identifiers or the split files, please cite it as below."
+title: "One Photograph, Nine Files: Provenance Audit and Sibling-Controlled Evaluation of a Public Fresh and Rotten Fruit Image Dataset (code, splits and results)"
 authors:
   - family-names: Shalaldeh
     given-names: Ahmad
     affiliation: "Al-Ahliyya Amman University"
 repository-code: "https://github.com/ahmadfshalaldeh-bot/fruit-freshness-vgg16-benchmark"
 license: MIT
-doi: 10.5281/zenodo.24242047
-version: 1.0
-date-released: 2026-11-13
+version: "2.0"
+date-released: 2026-11-16

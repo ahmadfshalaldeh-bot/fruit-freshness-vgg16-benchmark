@@ -1,58 +1,75 @@
-# One Photograph, Nine Images: provenance-aware benchmarking of a frozen VGG16 fresh/rotten fruit classifier
+# One Photograph, Nine Files
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24242047.svg)](https://doi.org/10.5281/zenodo.24242047)
+Code, provenance records, split files and results for the article submitted to *Applied Sciences* (MDPI):
+**Shalaldeh, A. "One Photograph, Nine Files: Provenance Audit and Sibling-Controlled Evaluation of a Public Fresh and Rotten Fruit Image Dataset."**
 
-Code, split assignments and results for the article submitted to *Applied Sciences* (MDPI):
-**Shalaldeh, A. "One Photograph, Nine Images: Provenance-Aware Benchmarking of a Frozen VGG16 Classifier for Fresh and Rotten Fruit."**
+Version 2.0 is the version used in the article. Version 1.0 ([10.5281/zenodo.24242047](https://doi.org/10.5281/zenodo.24242047)) holds the earlier single-split configuration and is kept for reference.
 
-## Key finding
+## What the audit found
 
-The Kaggle collection [*Fruits Fresh and Rotten for Classification*](https://www.kaggle.com/datasets/sriramr/fruits-fresh-and-rotten-for-classification)
-(6 classes: fresh/rotten apple, banana, orange) downloads as **27,198 files**:
+The Kaggle collection [*Fruits Fresh and Rotten for Classification*](https://www.kaggle.com/datasets/sriramr/fruits-fresh-and-rotten-for-classification) (fresh and rotten apple, banana and orange) downloads as 27,198 files:
 
 * every file appears twice (`dataset/` and `dataset/dataset/`), leaving **13,599 unique images**;
-* those 13,599 images come from only **1,511 original photographs**, each stored in **9 versions**:
-  original, rotated 15°/30°/45°/60°/75°, salt-and-pepper, translation, vertical flip
-  (the operation is the file-name prefix, e.g. `rotated_by_15_Screen Shot …png`);
-* perceptual hashing recovers at most **8.6 %** of the 54,396 sibling pairs, so hash-based de-duplication is not enough.
+* these are **nine stored versions of 1,511 screen captures**: the capture, rotations of 15–75°, a salt-and-pepper copy, a translated copy and a vertical flip (the operation is the file-name prefix);
+* **all 2,698 images in the collection's own test folder have a sibling in its training folder**;
+* 29 zero-distance perceptual-hash links join 13 pairs of families; merging them gives **1,498 capture groups**;
+* a perceptual hash recovers at most 8.6% of the 54,396 sibling pairs at the thresholds tested; VGG16 embeddings rank siblings with an AUC of 0.876.
 
-With a conventional random image-level split, **every test image has a sibling of the same photograph in training**.
+## Matched contamination study (E3)
 
-| Protocol (frozen VGG16, identical pipeline, seed 42) | Test images | Accuracy (95 % CI, photo-clustered bootstrap) | Macro F1 |
-|---|---|---|---|
-| Image-level split (stratified, 70/15/15) | 2,040 | 97.01 % (95.9–97.9) | 96.94 % |
-| **Photo-level split** (all 9 versions of a photo in one partition) | 2,052 | **94.88 % (92.6–96.9)** | **94.69 %** |
+Both arms share a donor-depleted common training base. The clean arm adds seven derived versions of a same-class donor family for each test family; the exposed arm adds the seven corresponding versions of the test family itself. Training size, class counts, version mix, initial weights and the number of optimiser updates are identical; both arms are evaluated on the same held-out original captures and withheld derived versions.
 
-The error rate rises from 2.99 % to 5.12 % (≈ +71 %), and F1 is lower for all six classes.
-**Please use the photo-level split** (`results/photo_split/S1_manifest_with_split.csv`, column `split`) when benchmarking on this collection.
+| Backbone (10 paired fits each) | Clean | Exposed | Difference | Errors (clean → exposed) |
+|---|---|---|---|---|
+| Frozen VGG16, original captures | 98.55% | 99.37% | +0.83 pp | 44 → 19 |
+| Fine-tuned VGG16, original captures | 97.95% | 99.97% | +2.02 pp | 62 → 1 |
 
 ## Repository layout
 
-| Path | Contents |
-|---|---|
-| `notebooks/fruit_vgg16_reproducibility.ipynb` | Colab notebook (A100 GPU recommended). `SPLIT_MODE = "family"` (photo-level) or `"image"` |
-| `src/pipeline.py` | Same code as a Python script |
-| `src/pipeline_v1_image_split.py` | Exact pipeline version that produced `results/image_split` (run with `PER_CLASS = None`) |
-| `results/photo_families.csv` | Photograph identifier (`family`) and stored version (`op`) for every image |
-| `results/image_split/`, `results/photo_split/` | For each arm: file inventory with SHA-256 (S1a), manifest with split (S1), perceptual-hash audit (S2), held-out predictions with class probabilities (S3), confusion matrix, class metrics, training history, model summary, environment record and `pip freeze` lock file, `SHA256SUMS.txt` |
-| `results/numbers_used.json` | Every number quoted in the manuscript, computed from the two result folders |
-| `analysis/` | Scripts that compute the manuscript numbers and draw the figures from the result folders (no images needed) |
-| `figures/` | Manuscript figures (no dataset photographs are reproduced) |
+```
+v2/
+  notebook/fruit_v2_experiments.ipynb   Colab notebook that ran every v2 experiment (E1-E5)
+  src/pipeline_v2.py, design_v2.py      the same code as plain Python; design_v2.py defines folds, donors and statistics
+  analysis/                             read-only analysis: regenerates numbers, tables and figures from v2/results
+  results/
+    audit/      file manifest with checksums, family and capture-group identifiers, hash pairs, cross-family links, corner checks
+    embed/      embedding-detection summary (E2)
+    designs/    role of every file in every E3 split (base, donor bundle, exposure bundle, validation, evaluation, unused)
+    runs/       per-fit run records, training histories and predictions with class probabilities; initial-weight hashes
+    environment_v2.json, requirements_lock_v2.txt
+    SHA256SUMS.txt
+results/, src/, analysis/, notebooks/, figures/   version 1.0 materials (historical)
+```
 
-## Reproduce
+## Reproducing the reported numbers without retraining
 
-1. Open `notebooks/fruit_vgg16_reproducibility.ipynb` in Google Colab, choose a GPU runtime, and **Run all**.
-   The notebook downloads the dataset with `kagglehub`, audits it, splits it, trains, evaluates and writes a reproducibility archive.
-2. Re-draw the figures from the archived results:
-   `python analysis/make_figures.py results/image_split results/photo_split figures/`
+```bash
+pip install numpy pandas scipy scikit-learn matplotlib
+cd v2/analysis
+python build_v2.py ../../results/image_split ../../results/photo_split ../results ./out
+python supplement_v2.py ../results ./out/supp ./out     # optional: Supplementary PDF (needs pdflatex)
+```
 
-Environment of the reported runs: NVIDIA A100-SXM4-80GB (Google Colab), Python 3.13.16, TensorFlow 2.21.0, Keras 3.13.2, scikit-learn 1.6.1.
-Trained weights (~60 MB per arm) are available from the author on request.
+`out/numbers_used_v2.json` holds every number reported in the article; `out/TableS1_E3_pairs.csv` and `out/TableS2_split_composition.csv` are Supplementary Tables S1 and S2; `out/Figures/` holds Figures 1–3. No GPU and no images are needed.
 
-## Data licence note
+| Article item | Source records | Produced by |
+|---|---|---|
+| Tables 3 and 4, Section 4.1–4.2 | `v2/results/audit/*`, `v2/results/embed/*`, v1.0 `results/*/S1_*`, `S2_*` | `build_v2.py` |
+| Table 5, Figure 3, Tables 6–7, Table S1 | `v2/results/runs/E3*` | `build_v2.py`, `extra_v2.py`, `figures_v2.py` |
+| Table 8 | `v2/results/runs/E4*`, `E5*`; v1.0 `results/*/S3_heldout_predictions.csv` | `build_v2.py` |
+| Table S2 | `v2/results/designs/*` | `extra_v2.py` |
+| Table S3 | `v2/results/audit/cross_family_tau0_pairs.csv` | `supplement_v2.py` |
 
-The images are **not** redistributed here; the Kaggle page lists the dataset licence as unknown. The manifests list relative paths and SHA-256 checksums so the exact analysed set can be rebuilt from a fresh download.
+## Re-running the experiments
 
-## Licence and citation
+Open `v2/notebook/fruit_v2_experiments.ipynb` in Google Colab (A100 GPU, High RAM) and run all cells. The notebook downloads the dataset with `kagglehub`, writes every result to Google Drive after each fit and skips finished fits on restart. The initial-weight files (`*.init_gpuaug.weights.h5`) are not in the repository because of their size; their SHA-256 digests are in `v2/results/runs/init_weight_hashes.csv` and the files are available from the author on request.
 
-Code: MIT (see `LICENSE`). Archived on Zenodo: https://doi.org/10.5281/zenodo.24242047 (v1.0). Please cite the article (see `CITATION.cff`).
+## Notes on version 1.0 files
+
+* `results/photo_families.csv` now carries the photo-level split (an earlier commit carried the image-level split by mistake).
+* `analysis/build_paper.py`, `make_figures.py` and `supplementary_analysis.py` reproduce the v1.0 analysis; the v1.0 bootstrap resamples individual files, not capture groups.
+* The `SHA256SUMS.txt` files in `results/image_split` and `results/photo_split` also list the v1.0 model weight files, which are not in the repository because of their size.
+
+## Licence and data
+
+Code and derived records: MIT. The images belong to the Kaggle dataset and are not redistributed; its licence is listed as unknown.

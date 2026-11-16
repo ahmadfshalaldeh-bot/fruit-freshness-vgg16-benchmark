@@ -1,3 +1,5 @@
+# HISTORICAL (v1.0). This script reproduces the earlier single-split analysis; its bootstrap resamples individual
+# files, not capture groups. The v2 analysis (capture-group bootstrap, matched design) is in v2/analysis/.
 """Supplementary analysis from the reproducibility archive outputs (no images needed).
 Usage: python supplementary_analysis.py <archive_dir> <out_dir>"""
 import sys, json

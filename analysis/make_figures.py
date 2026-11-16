@@ -1,3 +1,5 @@
+# HISTORICAL (v1.0). This script reproduces the earlier single-split analysis; its bootstrap resamples individual
+# files, not capture groups. The v2 analysis (capture-group bootstrap, matched design) is in v2/analysis/.
 """Manuscript figures, drawn only from archive outputs (no dataset photographs are reproduced).
 Usage: python make_figures.py <image_split_archive> <family_split_archive> <out_dir>"""
 import sys, json

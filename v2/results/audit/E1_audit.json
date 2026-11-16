@@ -1,0 +1,154 @@
+{
+  "kaggle_native": {
+    "families_by_folder": {
+      "test+train": 1310,
+      "train": 201
+    },
+    "official_test_images": 2698,
+    "official_test_with_sibling_in_official_train": 2698,
+    "per_class": {
+      "freshapples": [
+        395,
+        395
+      ],
+      "freshbanana": [
+        381,
+        381
+      ],
+      "freshoranges": [
+        388,
+        388
+      ],
+      "rottenapples": [
+        601,
+        601
+      ],
+      "rottenbanana": [
+        530,
+        530
+      ],
+      "rottenoranges": [
+        403,
+        403
+      ]
+    }
+  },
+  "phash": {
+    "true_sibling_pairs": 54396,
+    "by_threshold": {
+      "0": {
+        "linked": 3970,
+        "sibling": 3941,
+        "cross_label": 0,
+        "true_links_by_version_pair": {
+          "original|vertical_flip": 1511,
+          "saltandpepper|vertical_flip": 1225,
+          "original|saltandpepper": 1205
+        }
+      },
+      "2": {
+        "linked": 4701,
+        "sibling": 4519,
+        "cross_label": 20,
+        "true_links_by_version_pair": {
+          "original|vertical_flip": 1511,
+          "original|saltandpepper": 1503,
+          "saltandpepper|vertical_flip": 1501,
+          "rotated_by_15|rotated_by_30": 2,
+          "rotated_by_30|rotated_by_60": 1,
+          "rotated_by_60|rotated_by_75": 1
+        }
+      },
+      "4": {
+        "linked": 5570,
+        "sibling": 4552,
+        "cross_label": 295,
+        "true_links_by_version_pair": {
+          "original|saltandpepper": 1511,
+          "original|vertical_flip": 1511,
+          "saltandpepper|vertical_flip": 1510,
+          "rotated_by_15|rotated_by_30": 9,
+          "rotated_by_30|rotated_by_60": 5,
+          "rotated_by_60|rotated_by_75": 4,
+          "rotated_by_15|rotated_by_60": 1,
+          "rotated_by_45|rotated_by_60": 1
+        }
+      },
+      "6": {
+        "linked": 10640,
+        "sibling": 4656,
+        "cross_label": 2897,
+        "true_links_by_version_pair": {
+          "original|saltandpepper": 1511,
+          "original|vertical_flip": 1511,
+          "saltandpepper|vertical_flip": 1511,
+          "rotated_by_15|rotated_by_30": 39,
+          "rotated_by_60|rotated_by_75": 27,
+          "rotated_by_30|rotated_by_60": 24,
+          "rotated_by_45|rotated_by_60": 14,
+          "rotated_by_15|rotated_by_75": 7,
+          "rotated_by_30|rotated_by_45": 5,
+          "rotated_by_15|rotated_by_60": 3,
+          "rotated_by_30|rotated_by_75": 2,
+          "rotated_by_15|saltandpepper": 1,
+          "original|rotated_by_15": 1
+        }
+      }
+    }
+  },
+  "cross_family_tau0": {
+    "pairs": 29,
+    "pixel_check": {
+      "different size": 29
+    },
+    "families": 1511,
+    "capture_groups": 1498
+  },
+  "corner_padding": {
+    "original": {
+      "black": 0.0215,
+      "white": 0.7199,
+      "transparent": 0.0
+    },
+    "rotated_by_15": {
+      "black": 0.9998,
+      "white": 0.0001,
+      "transparent": 0.0
+    },
+    "rotated_by_30": {
+      "black": 1.0,
+      "white": 0.0,
+      "transparent": 0.0
+    },
+    "rotated_by_45": {
+      "black": 0.9941,
+      "white": 0.0018,
+      "transparent": 0.0
+    },
+    "rotated_by_60": {
+      "black": 0.955,
+      "white": 0.0347,
+      "transparent": 0.0
+    },
+    "rotated_by_75": {
+      "black": 0.8854,
+      "white": 0.0756,
+      "transparent": 0.0
+    },
+    "saltandpepper": {
+      "black": 0.003,
+      "white": 0.8185,
+      "transparent": 0.0
+    },
+    "translation": {
+      "black": 0.7343,
+      "white": 0.178,
+      "transparent": 0.0
+    },
+    "vertical_flip": {
+      "black": 0.0,
+      "white": 0.7843,
+      "transparent": 0.0
+    }
+  }
+}
