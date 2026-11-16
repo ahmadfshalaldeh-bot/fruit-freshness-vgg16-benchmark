@@ -8,4 +8,5 @@ authors:
 repository-code: "https://github.com/ahmadfshalaldeh-bot/fruit-freshness-vgg16-benchmark"
 license: MIT
 version: "2.0"
+doi: 10.5281/zenodo.24273731
 date-released: 2026-11-16

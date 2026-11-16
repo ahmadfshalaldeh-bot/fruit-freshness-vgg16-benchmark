@@ -1,9 +1,11 @@
 # One Photograph, Nine Files
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24273731.svg)](https://doi.org/10.5281/zenodo.24273731)
+
 Code, provenance records, split files and results for the article submitted to *Applied Sciences* (MDPI):
 **Shalaldeh, A. "One Photograph, Nine Files: Provenance Audit and Sibling-Controlled Evaluation of a Public Fresh and Rotten Fruit Image Dataset."**
 
-Version 2.0 is the version used in the article. Version 1.0 ([10.5281/zenodo.24242047](https://doi.org/10.5281/zenodo.24242047)) holds the earlier single-split configuration and is kept for reference.
+Version 2.0 ([10.5281/zenodo.24273731](https://doi.org/10.5281/zenodo.24273731)) is the version used in the article. The concept DOI [10.5281/zenodo.24242046](https://doi.org/10.5281/zenodo.24242046) always resolves to the latest version. Version 1.0 ([10.5281/zenodo.24242047](https://doi.org/10.5281/zenodo.24242047)) holds the earlier single-split configuration and is kept for reference.
 
 ## What the audit found
 
